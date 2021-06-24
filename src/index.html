@@ -13,9 +13,17 @@
 </head>
 <body>
 
-<input type="text" name="tone1" placeholder="440" value="440">
-<input type="text" name="tone2" placeholder="261.626" value="261.626">
-<button onclick="playSound()">play wow</button>
+<form action="javascript:void(0);">
+    <input type="text" name="tone1" placeholder="440" value="440">
+    <input type="text" name="tone2" placeholder="261.626" value="261.626">
+
+    <input id="saw" value="saw" name="wave" type="radio" /><label for="saw">saw</label>
+    <input id="sine" value="sine" name="wave" type="radio" /><label for="sine">sine</label>
+    <input id="square" value="square" name="wave" type="radio" /><label for="square">square</label>
+    <input id="triangle" value="triangle" name="wave" type="radio" /><label for="triangle">triangle</label>
+
+    <button onclick="playSound()">play wow</button>
+</form>
 interval was <span id="interval"></span>
 <div class="scroll">
     <table>
@@ -873,6 +881,7 @@ interval was <span id="interval"></span>
     </table>
 </div>
 <script src="jquery.js"></script>
+<script src="g.min.js"></script>
 <script>
 
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -944,18 +953,44 @@ interval was <span id="interval"></span>
         source.start(0);
     }
 
-    function sineWaveAt(sampleNumber, tone) {
-        const sampleFreq = context.sampleRate / tone;
-        return Math.sin(sampleNumber / (sampleFreq / (Math.PI * 2)))
+    const twoPi = 2 * Math.PI;
+
+    function sawWaveAt(x) {
+        return g.sawtoothWave(x, -1, 1, twoPi)
+    }
+
+    function sineWaveAt(x) {
+        return g.sineWave(x, -1, 1, twoPi)
+    }
+
+    function squareWaveAt(x) {
+        return g.squareWave(x, -1, 1, twoPi)
+    }
+
+    function triangleWaveAt(x) {
+        return g.triangleWave(x, -1, 1, twoPi)
     }
 
     const fillArrays = (arr, tone) => {
-        console.info(arr, tone)
         let volume = 0.05
         let seconds = 2
+        let waveForm
+        let waveChoice = $("input[type=radio][name=wave]:checked").val()
+        if (waveChoice) {
+            switch (waveChoice) {
+                case 'sine': waveForm = sineWaveAt; break
+                case 'saw': waveForm = sawWaveAt; break
+                case 'square': waveForm = squareWaveAt; break
+                case 'triangle': waveForm = triangleWaveAt; break
+                default:
+                    waveForm = sineWaveAt
+            }
+        }
+
+        const period = context.sampleRate / tone / twoPi;
 
         for (let i = 0; i < context.sampleRate * seconds; i++) {
-            arr[i] = sineWaveAt(i, tone) * volume
+            arr[i] = waveForm(i / period) * volume;
         }
 
         const buf = new Float32Array(arr.length);
@@ -963,7 +998,7 @@ interval was <span id="interval"></span>
         for (let i = 0; i < arr.length; i++) buf[i] = arr[i]
 
         return buf
-    }
+    };
 
 </script>
 </body>
