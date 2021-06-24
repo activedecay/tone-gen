@@ -1,0 +1,2430 @@
+<html lang="en">
+<head>
+    <style>
+        .scroll {
+            overflow: auto;
+            max-height: 600px;
+        }
+        td {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" name="tone1" placeholder="440" value="440">
+<input type="text" name="tone2" placeholder="261.626" value="261.626">
+<button onclick="playSound()">play wow</button>
+interval was <span id="interval"></span>
+<div>Wavelengths based on speed of sound = 340.29 m/s</div>
+<div class="scroll">
+    <table>
+        <thead>
+        <tr>
+            <td>
+                <b>Note</b>
+            </td>
+            <td>
+                <b>Octave</b>
+            </td>
+            <td>
+                <b>Hz</b>
+            </td>
+            <td>
+                <b>Lambda</b>
+            </td>
+            <td>
+                <b>Comment</b>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                C
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                16.351
+            </td>
+            <td>
+                <span>20.812m</span>
+            </td>
+            <td>
+                MIDI note # 12
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C# / Db
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                17.324
+            </td>
+            <td>
+                <span>19.643m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                18.354
+            </td>
+            <td>
+                <span>18.54m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D# / Eb
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                19.445
+            </td>
+            <td>
+                <span>17.5m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                20.601
+            </td>
+            <td>
+                <span>16.518m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                21.827
+            </td>
+            <td>
+                <span>15.59m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F# / Gb
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                23.124
+            </td>
+            <td>
+                <span>14.716m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                24.499
+            </td>
+            <td>
+                <span>13.89m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G# / Ab
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                25.956
+            </td>
+            <td>
+                <span>13.11m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                27.5
+            </td>
+            <td>
+                <span>12.374m</span>
+            </td>
+            <td>
+                Lowest Note of Piano
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A# / Bb
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                29.135
+            </td>
+            <td>
+                <span>11.68m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                B
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                30.868
+            </td>
+            <td>
+                <span>11.024m</span>
+            </td>
+            <td>
+                Lowest Note of 5 string bass
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                32.703
+            </td>
+            <td>
+                <span>10.405m</span>
+            </td>
+            <td>
+                Lowest Note of double bass with C extension
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C# / Db
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                34.648
+            </td>
+            <td>
+                <span>9.821m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                36.708
+            </td>
+            <td>
+                <span>9.27m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D# / Eb
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                38.891
+            </td>
+            <td>
+                <span>8.75m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                41.203
+            </td>
+            <td>
+                <span>8.259m</span>
+            </td>
+            <td>
+                Lowest Note of Bass
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                43.654
+            </td>
+            <td>
+                <span>7.795m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F# / Gb
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                46.249
+            </td>
+            <td>
+                <span>7.358m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                48.999
+            </td>
+            <td>
+                <span>6.945m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G# / Ab
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                51.913
+            </td>
+            <td>
+                <span>6.555m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                55
+            </td>
+            <td>
+                <span>6.187m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A# / Bb
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                58.27
+            </td>
+            <td>
+                <span>5.84m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                B
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                61.735
+            </td>
+            <td>
+                <span>5.512m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                65.406
+            </td>
+            <td>
+                <span>5.203m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C# / Db
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                69.296
+            </td>
+            <td>
+                <span>4.911m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                73.416
+            </td>
+            <td>
+                <span>4.635m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D# / Eb
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                77.782
+            </td>
+            <td>
+                <span>4.375m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                82.407
+            </td>
+            <td>
+                <span>4.129m</span>
+            </td>
+            <td>
+                Lowest Note of Guitar
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                87.307
+            </td>
+            <td>
+                <span>3.898m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F# / Gb
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                92.499
+            </td>
+            <td>
+                <span>3.679m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                97.999
+            </td>
+            <td>
+                <span>3.472m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G# / Ab
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                103.826
+            </td>
+            <td>
+                <span>3.278m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                110
+            </td>
+            <td>
+                <span>3.094m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A# / Bb
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                116.541
+            </td>
+            <td>
+                <span>2.92m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                B
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                123.471
+            </td>
+            <td>
+                <span>2.756m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                130.813
+            </td>
+            <td>
+                <span>2.601m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C# / Db
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                138.591
+            </td>
+            <td>
+                <span>2.455m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                146.832
+            </td>
+            <td>
+                <span>2.318m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D# / Eb
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                155.563
+            </td>
+            <td>
+                <span>2.187m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                164.814
+            </td>
+            <td>
+                <span>2.065m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                174.614
+            </td>
+            <td>
+                <span>1.949m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                F# / Gb
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                184.997
+            </td>
+            <td>
+                <span>1.839m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                195.998
+            </td>
+            <td>
+                <span>1.736m</span>
+            </td>
+            <td>
+                Lowest note of violin
+            </td>
+        </tr>
+        <tr>
+            <td>
+                G# / Ab
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                207.652
+            </td>
+            <td>
+                <span>1.639m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                220
+            </td>
+            <td>
+                <span>1.547m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                A# / Bb
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                233.082
+            </td>
+            <td>
+                <span>1.46m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                B
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                246.942
+            </td>
+            <td>
+                <span>1.378m</span>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                261.626
+            </td>
+            <td>
+
+                <span>1.301m</span>
+            </td>
+            <td>
+
+                Middle C
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C# / Db
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                277.183
+            </td>
+            <td>
+
+                <span>1.228m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                293.665
+            </td>
+            <td>
+
+                <span>1.159m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D# / Eb
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                311.127
+            </td>
+            <td>
+
+                <span>1.094m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                E
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                329.628
+            </td>
+            <td>
+
+                <span>1.032m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                349.228
+            </td>
+            <td>
+
+                <span>0.974m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F# / Gb
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                369.994
+            </td>
+            <td>
+
+                <span>0.92m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                391.995
+            </td>
+            <td>
+
+                <span>0.868m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G# / Ab
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                415.305
+            </td>
+            <td>
+
+                <span>0.819m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                440
+            </td>
+            <td>
+
+                <span>0.773m</span>
+            </td>
+            <td>
+
+                Tuning reference note
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A# / Bb
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                466.164
+            </td>
+            <td>
+
+                <span>0.73m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                B
+            </td>
+            <td>
+
+                4
+            </td>
+            <td>
+
+                493.883
+            </td>
+            <td>
+
+                <span>0.689m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                523.251
+            </td>
+            <td>
+
+                <span>0.65m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C# / Db
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                554.365
+            </td>
+            <td>
+
+                <span>0.614m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                587.33
+            </td>
+            <td>
+
+                <span>0.579m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D# / Eb
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                622.254
+            </td>
+            <td>
+
+                <span>0.547m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                E
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                659.255
+            </td>
+            <td>
+
+                <span>0.516m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                698.456
+            </td>
+            <td>
+
+                <span>0.487m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F# / Gb
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                739.989
+            </td>
+            <td>
+
+                <span>0.46m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                783.991
+            </td>
+            <td>
+
+                <span>0.434m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G# / Ab
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                830.609
+            </td>
+            <td>
+
+                <span>0.41m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                880
+            </td>
+            <td>
+
+                <span>0.387m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A# / Bb
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                932.328
+            </td>
+            <td>
+
+                <span>0.365m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                B
+            </td>
+            <td>
+
+                5
+            </td>
+            <td>
+
+                987.767
+            </td>
+            <td>
+
+                <span>0.345m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1046.502
+            </td>
+            <td>
+
+                <span>0.325m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C# / Db
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1108.731
+            </td>
+            <td>
+
+                <span>0.307m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1174.659
+            </td>
+            <td>
+
+                <span>0.29m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D# / Eb
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1244.508
+            </td>
+            <td>
+
+                <span>0.273m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                E
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1318.51
+            </td>
+            <td>
+
+                <span>0.258m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1396.913
+            </td>
+            <td>
+
+                <span>0.244m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F# / Gb
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1479.978
+            </td>
+            <td>
+
+                <span>0.23m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1567.982
+            </td>
+            <td>
+
+                <span>0.217m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G# / Ab
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1661.219
+            </td>
+            <td>
+
+                <span>0.205m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1760
+            </td>
+            <td>
+
+                <span>0.193m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A# / Bb
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1864.655
+            </td>
+            <td>
+
+                <span>0.182m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                B
+            </td>
+            <td>
+
+                6
+            </td>
+            <td>
+
+                1975.533
+            </td>
+            <td>
+
+                <span>0.172m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                2093.005
+            </td>
+            <td>
+
+                <span>0.163m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C# / Db
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                2217.461
+            </td>
+            <td>
+
+                <span>0.153m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                2349.318
+            </td>
+            <td>
+
+                <span>0.145m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D# / Eb
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                2489.016
+            </td>
+            <td>
+
+                <span>0.137m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                E
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                2637.021
+            </td>
+            <td>
+
+                <span>0.129m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                2793.826
+            </td>
+            <td>
+
+                <span>0.122m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F# / Gb
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                2959.955
+            </td>
+            <td>
+
+                <span>0.115m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                3135.964
+            </td>
+            <td>
+
+                <span>0.109m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G# / Ab
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                3322.438
+            </td>
+            <td>
+
+                <span>0.102m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                3520
+            </td>
+            <td>
+
+                <span>0.097m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A# / Bb
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                3729.31
+            </td>
+            <td>
+
+                <span>0.091m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                B
+            </td>
+            <td>
+
+                7
+            </td>
+            <td>
+
+                3951.066
+            </td>
+            <td>
+
+                <span>0.086m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                4186.009
+            </td>
+            <td>
+
+                <span>0.081m</span>
+            </td>
+            <td>
+
+                Highest note of piano
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C# / Db
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                4434.922
+            </td>
+            <td>
+
+                <span>0.077m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                4698.636
+            </td>
+            <td>
+
+                <span>0.072m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D# / Eb
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                4978.032
+            </td>
+            <td>
+
+                <span>0.068m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                E
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                5274.042
+            </td>
+            <td>
+
+                <span>0.065m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                5587.652
+            </td>
+            <td>
+
+                <span>0.061m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F# / Gb
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                5919.91
+            </td>
+            <td>
+
+                <span>0.057m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                6271.928
+            </td>
+            <td>
+
+                <span>0.054m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G# / Ab
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                6644.876
+            </td>
+            <td>
+
+                <span>0.051m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                7040
+            </td>
+            <td>
+
+                <span>0.048m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A# / Bb
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                7458.62
+            </td>
+            <td>
+
+                <span>0.046m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                B
+            </td>
+            <td>
+
+                8
+            </td>
+            <td>
+
+                7902.132
+            </td>
+            <td>
+
+                <span>0.043m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                8372.018
+            </td>
+            <td>
+
+                <span>0.041m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                C# / Db
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                8869.844
+            </td>
+            <td>
+
+                <span>0.038m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                9397.272
+            </td>
+            <td>
+
+                <span>0.036m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                D# / Eb
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                9956.064
+            </td>
+            <td>
+
+                <span>0.034m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                E
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                10548.084
+            </td>
+            <td>
+
+                <span>0.032m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                11175.304
+            </td>
+            <td>
+
+                <span>0.03m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                F# / Gb
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                11839.82
+            </td>
+            <td>
+
+                <span>0.029m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                12543.856
+            </td>
+            <td>
+
+                <span>0.027m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                G# / Ab
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                13289.752
+            </td>
+            <td>
+
+                <span>0.026m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                14080
+            </td>
+            <td>
+
+                <span>0.024m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                A# / Bb
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                14917.24
+            </td>
+            <td>
+
+                <span>0.023m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                B
+            </td>
+            <td>
+
+                9
+            </td>
+            <td>
+
+                15804.264
+            </td>
+            <td>
+
+                <span>0.022m</span>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="jquery.js"></script>
+<script>
+
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+    const context = new AudioContext();
+    $('body').keydown(({code}) => {
+        if (code === 'Enter') {
+            playSound()
+        }
+    })
+
+    let idx1
+    let idx2
+
+    // pick a random place in the table near the middle
+    $(".scroll").scrollTop($('tr:eq(40)')[0].offsetTop)
+
+    $('tr').each((_, x) => {
+        // prepend a new td
+        $(x).prepend($('<td>').text(_))
+        // assign click events
+        $(x).click((evt) => {
+            if (!evt.ctrlKey) {
+                idx1 = _
+                $('[name="tone1"]').val($(x).find('td:eq(3)').text().trim())
+            } else {
+                idx2 = _
+                $('[name="tone2"]').val($(x).find('td:eq(3)').text().trim())
+            }
+        })
+    })
+
+    const toInterval = () => {
+        const intervalsText = [
+            'Unison',
+            'min 2',
+            'Maj 2',
+            'min 3',
+            'Maj 3',
+            'Perfect 4',
+            'tritone',
+            'Perfect 5',
+            'min 6',
+            'Maj 6',440
+            'min 7',
+            'Maj 7',
+        ]
+        let idx = Math.abs(idx2 - idx1);
+        let octave = idx > intervalsText.length - 1 ? '+' + Math.floor(idx / intervalsText.length) + 'octave' : ""
+        return intervalsText[idx % intervalsText.length] + " " + octave
+    }
+
+    function playSound() {
+        $('#interval').text(toInterval())
+        let arr1 = []
+        let arr2 = []
+        let buf1 = fillArrays(arr1, $('[name="tone1"]').val())
+        let buf2 = fillArrays(arr2, $('[name="tone2"]').val())
+        const buffer = context.createBuffer(2, buf1.length, context.sampleRate);
+        play(buffer, buf1, 0)
+        play(buffer, buf2, 1)
+    }
+
+    const play = (buffer, raw, channel) => {
+        buffer.copyToChannel(raw, channel)
+        const source = context.createBufferSource();
+        source.buffer = buffer;
+        source.connect(context.destination);
+        source.start(0);
+    }
+
+    function sineWaveAt(sampleNumber, tone) {
+        const sampleFreq = context.sampleRate / tone;
+        return Math.sin(sampleNumber / (sampleFreq / (Math.PI * 2)))
+    }
+
+    const fillArrays = (arr, tone) => {
+        console.info(arr, tone)
+        let volume = 0.1
+        let seconds = 2
+
+        for (let i = 0; i < context.sampleRate * seconds; i++) {
+            arr[i] = sineWaveAt(i, tone) * volume
+        }
+
+        const buf = new Float32Array(arr.length);
+
+        for (let i = 0; i < arr.length; i++) buf[i] = arr[i]
+
+        return buf
+    }
+
+</script>
+</body>
+</html>
